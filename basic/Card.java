@@ -1,4 +1,4 @@
-package self.javaWebProgrammingSchool;
+package self.javaWebProgrammingSchool.basic;
 
 public class Card {
     private String type;

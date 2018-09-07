@@ -1,4 +1,4 @@
-package self.javaWebProgrammingSchool;
+package self.javaWebProgrammingSchool.basic;
 
 import java.util.ArrayList;
 import java.util.List;
