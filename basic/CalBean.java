@@ -18,14 +18,20 @@ public class CalBean {
          * @return m을 n으로 나눈 결과
          * @throws IllegalArgumentException n이 0일 경우 발생한다.
          */
-    public static int divide(int m, int n) throws IllegalArgumentException {
-        if(n == 0) {
-            throw new IllegalArgumentException("0으로 나눌수 없다.");
-        }
+        public static int divide(int m, int n) throws IllegalArgumentException {
+            if(n == 0) {
+                throw new IllegalArgumentException("0으로 나눌수 없다.");
+            }
 
-        int value = 0;
-        value = m /n;
-        return value;
+            int value = 0;
+            value = m /n;
+            return value;
+        }
     }
 }
+
+class ParameterException extends RuntimeException {
+    public ParameterException(String msg) {
+        super(msg);
+    }
 }
