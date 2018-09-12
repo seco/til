@@ -6,19 +6,18 @@ import java.util.Objects;
 public class FileExam05 {
     public static void main(String[] args) {
         // 현재 디렉토리 이하의 파일들을 탐색해서 전체 파일 크기의 합을 출력하시오.
-        File file = new File(".");
+        File file = new File("./src");
         File[] files = file.listFiles();
-
-
-        public static int  fileSizeCal(File file) {
-            int fileSizeSum = 0;
-            if(file.listFiles() == null) {
-                return;
-            }else if(file.isDirectory()) {
-
+        for (File f : files) {
+            if(f.isFile()){
+                System.out.println("[FILE]"+f.listFiles());
+            }else if(f.isDirectory()) {
+                System.out.println("[DIR]"+f.getPath());
             }else{
-                fileSizeSum += file.length();
+
             }
+            System.out.println(f.getAbsolutePath()+ ", " +f.getTotalSpace());
+            System.out.println(f.getParentFile());
         }
     }
 }
