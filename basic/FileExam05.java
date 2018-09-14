@@ -1,44 +1,25 @@
 package self.javaWebProgrammingSchool.basic;
 
 import java.io.File;
-import java.util.Objects;
 
+// 현재 디렉토리 이하의 파일들을 탐색해서 전체 파일 크기의 합을 출력하시오.
 public class FileExam05 {
     public static void main(String[] args) {
-        // 현재 디렉토리 이하의 파일들을 탐색해서 전체 파일 크기의 합을 출력하시오.
-        File file = new File("./src");
+        File file = new File(".");
         File[] files = file.listFiles();
-        for (File f : files) {
-            if(f.isFile()){
-                System.out.println("[FILE]"+f.listFiles());
-            }else if(f.isDirectory()) {
-                System.out.println("[DIR]"+f.getPath());
-            }else{
+        for(File f : files) {
+            System.out.println(f.getPath()+ " " + f.length());
+            subDir(".");
+        }
+    }
 
-            }
-            System.out.println(f.getAbsolutePath()+ ", " +f.getTotalSpace());
-            System.out.println(f.getParentFile());
+    public static void subDir(String path) {
+        File file = new File(".");
+        File[] files = file.listFiles();
+
+        if(file.isDirectory()) {
+            path = file.getAbsolutePath()+file.getPath();
+            System.out.println(path);
         }
     }
 }
-/*        int fileSizeSummation = 0;
-        System.out.println(files[1].length());
-        if(file.listFiles() == null) {
-
-        } else if(file.isDirectory()){
-            for(File f1 : files) {
-
-            }
-        }else {
-            fileSizeSummation += f.length();
-        }
-
-        for (File f : files) {
-            if (f.isDirectory()) {
-
-                System.out.println("[DIR]" + f.getAbsolutePath());
-            } else {
-                fileSizeSummation += f.length();
-                System.out.println(f.getAbsolutePath());
-            }
-        }*/
