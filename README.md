@@ -1,2 +1,1 @@
-# javaWebProgrammingSchool
-Learning Java Web Programming related back-end
+# 자바 기본 연습장입니다.
