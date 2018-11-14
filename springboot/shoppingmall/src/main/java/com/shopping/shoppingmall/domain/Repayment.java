@@ -1,0 +1,25 @@
+package com.shopping.shoppingmall.domain;
+
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.*;
+import java.util.Date;
+
+@Entity
+@Table(name="repayment")
+@Getter
+@Setter
+public class Repayment {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @OneToOne
+    @JoinColumn(name = "purchasedGoodsId")
+    private PurchasedGoods purchasedGoods;
+
+    private boolean repayment;
+    private String repaymentReason;
+    private Date repaymentDate;
+}
