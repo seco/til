@@ -4,7 +4,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface Goods extends JpaRepository<Goods, Long> {
+public interface GoodsRepository extends JpaRepository<GoodsRepository, Long> {
 
-    public Page<Goods> findByGoodsNameContaining(String goodsName, Pageable pageable);
+    public Page<GoodsRepository> findByGoodsNameContaining(String goodsName, Pageable pageable);
 }
