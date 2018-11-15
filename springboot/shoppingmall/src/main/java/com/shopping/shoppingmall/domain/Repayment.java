@@ -13,7 +13,7 @@ import java.util.Date;
 public class Repayment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @OneToOne
     @JoinColumn(name = "purchasedGoodsId")
@@ -22,4 +22,5 @@ public class Repayment {
     private boolean repayment;
     private String repaymentReason;
     private Date repaymentDate;
+
 }

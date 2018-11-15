@@ -18,4 +18,7 @@ public class MyGoodsList {
     @JoinColumn(name = "memberId")
     private Member member;
 
+    @ManyToOne
+    @JoinColumn(name = "goodsId")
+    private Goods goods;
 }

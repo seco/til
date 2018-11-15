@@ -12,7 +12,7 @@ import javax.persistence.*;
 public class Delevery {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     @OneToOne
     @JoinColumn(name="purchaseInfoId")
     private PurchaseInfo purchaseInfo;

@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name="member")
@@ -34,6 +35,15 @@ public class Member {
     private boolean messageReception;
     private int point;
 
-    @OneToMany(mappedBy = "member")
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<PurchaseInfo> purchaseInfos;
+
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+    private List<CouponMember> couponMembers;
+
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+    private Set<Cart> carts;
+
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+    private Set<MyGoodsList> myGoodsLists;
 }
