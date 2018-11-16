@@ -14,11 +14,11 @@ import java.util.Set;
 public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long indexId;
+    private Long id;
     @Column(length = 255, nullable = false, unique = true)
     private String name;
     @Column(length = 255, nullable = false)
-    private String id;
+    private String loginId;
     @Column(length = 255, nullable = false)
     private String password;
     @Column(length = 10, nullable = false)
@@ -39,11 +39,16 @@ public class Member {
     private List<PurchaseInfo> purchaseInfos;
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
-    private List<CouponMember> couponMembers;
+    private Set<CartProducts> cartProducts;
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
-    private Set<Cart> carts;
+    private Set<InterestProduct> interestProducts;
 
-    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
-    private Set<MyGoodsList> myGoodsLists;
+    @ManyToMany
+    @JoinTable(name = "member_coupon",
+            joinColumns = @JoinColumn(name = "member_id", referencedColumnName = "id", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "coupon_id", referencedColumnName = "id", nullable = false))
+    private Set<Coupon> coupons;
+
+
 }

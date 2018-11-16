@@ -6,20 +6,22 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name="couponMember")
+@Table(name="purchasedProducts")
 @Getter
 @Setter
-public class CouponMember {
+public class PurchasedProducts {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "couponId")
-    private Coupon coupon;
+    @JoinColumn(name = "purchaseInfoId")
+    private PurchaseInfo purchaseInfo;
 
     @ManyToOne
-    @JoinColumn(name = "memberId")
-    private Member member;
+    @JoinColumn(name = "productId")
+    private Products products;
+
+    private int purchasedPrice;
 
 }

@@ -6,18 +6,18 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name="goodsOption")
+@Table(name="productOption")
 @Getter
 @Setter
-public class GoodsOption {
+public class ProductOption {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "goods_id")
-    private Goods goods;
+    @JoinColumn(name = "product_id")
+    private Products products;
 
     private String optionName;
     private int additionalPrice;

@@ -16,8 +16,8 @@ public class Repayment {
     private Long id;
 
     @OneToOne
-    @JoinColumn(name = "purchasedGoodsId")
-    private PurchasedGoods purchasedGoods;
+    @JoinColumn(name = "purchasedProductId")
+    private PurchasedProducts purchasedProducts;
 
     private boolean repayment;
     private String repaymentReason;

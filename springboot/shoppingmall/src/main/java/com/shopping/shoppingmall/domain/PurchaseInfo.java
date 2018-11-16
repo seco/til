@@ -16,9 +16,9 @@ public class PurchaseInfo {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "member_id", nullable = false)
+    @JoinColumn(name = "memberId", nullable = false)
     private Member member;
 
     @OneToMany(mappedBy = "purchaseInfo", cascade = CascadeType.ALL)
-    private Set<PurchasedGoods> purchasedGoods;
+    private Set<PurchasedProducts> purchasedProducts;
 }

@@ -20,9 +20,13 @@ public class Coupon {
     private Date expirationDate;
     private int ratio;
 
-    @OneToMany(mappedBy = "coupon", cascade = CascadeType.ALL)
-    private Set<CouponGoods> couponGoods;
 
-    @OneToMany(mappedBy = "coupon", cascade = CascadeType.ALL)
-    private Set<CouponMember> couponMembers;
+    @ManyToMany
+    @JoinTable(name = "product_coupon",
+                joinColumns = @JoinColumn(name = "coupon_id", referencedColumnName = "id", nullable = false),
+                inverseJoinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id", nullable = false))
+    private Set<Products> products;
+
+    private int quantity; // quantity of coupon
+
 }
