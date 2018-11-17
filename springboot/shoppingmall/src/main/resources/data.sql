@@ -1,4 +1,3 @@
-show tables;
 -- 사용자
 INSERT INTO member (id, address, address_detail, email, email_reception, gender, login_id, message_reception, name, password, point, zip_code) values (1, '서울특별시', '어쩌구', 'a@aa.com', 1, '남', 'shin', 0, '신윤철', '111', 0, '1123');
 INSERT INTO member (id, address, address_detail, email, email_reception, gender, login_id, message_reception, name, password, point, zip_code) values (2, '서울특별시', '저쩌구', 'b@aa.com', 0, '여', 'seo', 0, '서다인', '111', 0, '1123');
