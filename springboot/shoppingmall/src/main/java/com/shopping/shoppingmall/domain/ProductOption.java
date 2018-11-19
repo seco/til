@@ -17,7 +17,7 @@ public class ProductOption {
 
     @ManyToOne
     @JoinColumn(name = "product_id")
-    private Products products;
+    private Product product;
 
     private String optionName;
     private int additionalPrice;

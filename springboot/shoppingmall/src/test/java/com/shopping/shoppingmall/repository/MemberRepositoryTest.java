@@ -1,14 +1,13 @@
 package com.shopping.shoppingmall.repository;
 
 import com.shopping.shoppingmall.domain.Member;
+import com.shopping.shoppingmall.domain.Product;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.transaction.Transactional;
@@ -40,7 +39,7 @@ public class MemberRepositoryTest {
     @Test
     public void 이름이포함된member구하기() throws Exception {
         Pageable pageable = PageRequest.of(0, 5);
-        Page<Member> members = memberRepository.findByName("신윤철", pageable);
+        Page<Member> members = memberRepository.findByNameContaining("신윤철", pageable);
 
         System.out.println("====");
         for(Member member1 : members) {
@@ -48,5 +47,4 @@ public class MemberRepositoryTest {
         }
         System.out.println("===");
     }
-
 }

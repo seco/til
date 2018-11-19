@@ -20,7 +20,7 @@ public class PurchasedProducts {
 
     @ManyToOne
     @JoinColumn(name = "productId")
-    private Products products;
+    private Product product;
 
     private int purchasedPrice;
 

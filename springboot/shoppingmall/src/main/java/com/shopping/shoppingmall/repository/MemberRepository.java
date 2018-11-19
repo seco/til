@@ -16,5 +16,5 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
 //    public Page<Member> findByNameContaining(@Param("name")String name, Pageable pageable);
 
     @Query(value = "select ag from Member ag where ag.name like CONCAT('%',:name,'%')")
-    public Page<Member> findByName(@Param("name")String name, Pageable pageable);
+    public Page<Member> findByNameContaining(@Param("name")String name, Pageable pageable);
 }

@@ -12,6 +12,7 @@
 <h1>Test</h1>
 <br>
 
+<a href="/shop/list">»§¸®½ºÆ®</a>
 <h1>Hello</h1>
 </body>
 </html>

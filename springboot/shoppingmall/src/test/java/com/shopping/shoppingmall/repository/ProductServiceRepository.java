@@ -16,7 +16,7 @@ import javax.transaction.Transactional;
 @SpringBootTest
 //@DataJpaTest
 @Transactional
-public class ProductRepository {
+public class ProductServiceRepository {
     @Autowired
     ProductsRepasitory productsRepasitory;
 

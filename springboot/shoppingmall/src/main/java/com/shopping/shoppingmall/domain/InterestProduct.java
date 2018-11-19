@@ -20,5 +20,5 @@ public class InterestProduct {
 
     @ManyToOne
     @JoinColumn(name = "productId")
-    private Products products;
+    private Product product;
 }

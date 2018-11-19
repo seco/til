@@ -8,10 +8,10 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Table(name="products")
+@Table(name="product")
 @Getter
 @Setter
-public class Products {
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,16 +28,16 @@ public class Products {
     private int quantity;
     private Date registrationDate;
 
-//    @OneToMany(mappedBy = "products")
+//    @OneToMany(mappedBy = "product")
 //    private Set<PurchasedProducts> purchasedProducts;
 
-    @OneToMany(mappedBy = "products")
+    @OneToMany(mappedBy = "product")
     private Set<ProductOption> productOptions;
 
-//    @OneToMany(mappedBy = "products")
-//    private Set<CartProducts> cartProducts;
+    @OneToMany(mappedBy = "product")
+    private Set<CartProducts> cartProducts;
 
-//    @OneToMany(mappedBy = "products")
-//    private Set<InterestProduct> interestProducts;
+    @OneToMany(mappedBy = "product")
+    private Set<InterestProduct> interestProducts;
 
 }

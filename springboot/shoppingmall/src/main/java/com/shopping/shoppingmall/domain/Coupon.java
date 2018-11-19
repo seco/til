@@ -25,7 +25,7 @@ public class Coupon {
     @JoinTable(name = "product_coupon",
                 joinColumns = @JoinColumn(name = "coupon_id", referencedColumnName = "id", nullable = false),
                 inverseJoinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id", nullable = false))
-    private Set<Products> products;
+    private Set<Product> products;
 
     private int quantity; // quantity of coupon
 
