@@ -1,11 +1,18 @@
 -- 사용자
-INSERT INTO member (id, address, address_detail, email, email_reception, gender, login_id, message_reception, name, password, point, zip_code) values (1, '서울특별시', '어쩌구', 'a@aa.com', 1, '남', 'shin', 0, '신윤철', '111', 0, '1123');
-INSERT INTO member (id, address, address_detail, email, email_reception, gender, login_id, message_reception, name, password, point, zip_code) values (2, '서울특별시', '저쩌구', 'b@aa.com', 0, '여', 'seo', 0, '홍길동', '111', 0, '1123');
-INSERT INTO member (id, address, address_detail, email, email_reception, gender, login_id, message_reception, name, password, point, zip_code) values (3, '경기도', '성남시', 'c@aa.com', 0, '여', 'seo', 0, '고길동', '111', 0, '1123');
-INSERT INTO member (id, address, address_detail, email, email_reception, gender, login_id, message_reception, name, password, point, zip_code) values (4, '충북', '청주시', 'd@aa.com', 0, '남', 'seo', 0, '김길동', '111', 0, '1123');
-INSERT INTO member (id, address, address_detail, email, email_reception, gender, login_id, message_reception, name, password, point, zip_code) values (5, '충남', '공주시', 'e@aa.com', 0, '남', 'seo', 0, '박길동', '111', 0, '1123');
-INSERT INTO member (id, address, address_detail, email, email_reception, gender, login_id, message_reception, name, password, point, zip_code) values (6, '제주', '특별시', 'f@aa.com', 1, '여', 'seo', 0, '신길동', '111', 0, '1123');
-INSERT INTO member (id, address, address_detail, email, email_reception, gender, login_id, message_reception, name, password, point, zip_code) values (7, '경남', '몰라시', 'g@aa.com', 1, '여', 'seo', 0, 'gery', '111', 0, '1123');
+INSERT INTO member (id, address, address_detail, email, email_reception, gender, login_id, message_reception, name, password, point, zip_code) values (1, '서울특별시', '어쩌구', 'a@aa.com', 1, '남', 'shin', 0, '신윤철', '{bcrypt}$2a$10$8EcDedLOUbfMjh2SNMH9Fu.iWnwH6EYtqYgV92pAeZotv0OKXB1dC', 0, '1123');
+INSERT INTO member (id, address, address_detail, email, email_reception, gender, login_id, message_reception, name, password, point, zip_code) values (2, '서울특별시', '저쩌구', 'b@aa.com', 0, '여', 'seo', 0, '홍길동', '{bcrypt}$2a$10$WKJpnzcLtKMJgCP76DhAOeJQcgLkTb580vqUKWfvZERRCI.uNH22W', 0, '1123');
+INSERT INTO member (id, address, address_detail, email, email_reception, gender, login_id, message_reception, name, password, point, zip_code) values (3, '경기도', '성남시', 'c@aa.com', 0, '여', 's', 0, '고길동', '{bcrypt}$2a$10$WKJpnzcLtKMJgCP76DhAOeJQcgLkTb580vqUKWfvZERRCI.uNH22W', 0, '1123');
+INSERT INTO member (id, address, address_detail, email, email_reception, gender, login_id, message_reception, name, password, point, zip_code) values (4, '충북', '청주시', 'd@aa.com', 0, '남', 'd', 0, '김길동', '{bcrypt}$2a$10$WKJpnzcLtKMJgCP76DhAOeJQcgLkTb580vqUKWfvZERRCI.uNH22W', 0, '1123');
+INSERT INTO member (id, address, address_detail, email, email_reception, gender, login_id, message_reception, name, password, point, zip_code) values (5, '충남', '공주시', 'e@aa.com', 0, '남', 'f', 0, '박길동', '{bcrypt}$2a$10$WKJpnzcLtKMJgCP76DhAOeJQcgLkTb580vqUKWfvZERRCI.uNH22W', 0, '1123');
+INSERT INTO member (id, address, address_detail, email, email_reception, gender, login_id, message_reception, name, password, point, zip_code) values (6, '제주', '특별시', 'f@aa.com', 1, '여', 'g', 0, '신길동', '{bcrypt}$2a$10$WKJpnzcLtKMJgCP76DhAOeJQcgLkTb580vqUKWfvZERRCI.uNH22W', 0, '1123');
+INSERT INTO member (id, address, address_detail, email, email_reception, gender, login_id, message_reception, name, password, point, zip_code) values (7, '경남', '몰라시', 'g@aa.com', 1, '여', 'e', 0, 'gery', '{bcrypt}$2a$10$WKJpnzcLtKMJgCP76DhAOeJQcgLkTb580vqUKWfvZERRCI.uNH22W', 0, '1123');
+
+INSERT INTO role (id, name) VALUES (1, "USER");
+INSERT INTO role (id, name) VALUES (2, "ADMIN");
+
+INSERT INTO member_role(member_id, role_id) VALUES (1, 1);
+INSERT INTO member_role(member_id, role_id) VALUES (1, 2);
+INSERT INTO member_role(member_id, role_id) VALUES (2, 1);
 
 -- 카테고리
 INSERT INTO category(id, name, ordering, parents_id) VALUES (1, '호밀빵', 1, 0);

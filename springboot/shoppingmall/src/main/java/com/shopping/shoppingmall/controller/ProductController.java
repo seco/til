@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/shop")
-public class BreadController {
+public class ProductController {
     private ProductService productService;
 
-    public BreadController(ProductService productService) {
+    public ProductController(ProductService productService) {
         this.productService = productService;
     }
 

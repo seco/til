@@ -17,4 +17,7 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
 
     @Query(value = "select ag from Member ag where ag.name like CONCAT('%',:name,'%')")
     public Page<Member> findByNameContaining(@Param("name")String name, Pageable pageable);
+
+    @Query(value = "select m from Member m join fetch m.roles where m.loginId = :loginId")
+    public Member getMember(@Param("loginId")String loginId);
 }

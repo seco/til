@@ -10,7 +10,7 @@ public class MainController {
     }
 
     @RequestMapping("/")
-    public  String main() {
+    public  String index() {
         return "index";
     }
 }

@@ -35,6 +35,12 @@ public class Member {
     private boolean messageReception;
     private int point;
 
+    @ManyToMany
+    @JoinTable(name = "member_role",
+                joinColumns = @JoinColumn(name = "member_id", referencedColumnName = "id"),
+                inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+    private Set<Role> roles;
+
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<PurchaseInfo> purchaseInfos;
 
