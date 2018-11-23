@@ -20,10 +20,14 @@ public class ProductController {
 
     @GetMapping("/list")
     public String list(ModelMap modelMap,
-                       @RequestParam(value = "start", defaultValue = "0") int start,
-                       @RequestParam(value = "limit", defaultValue = "5") int limit) {
-        Page<Product> products = productService.getProducts(start, limit);
+                       @RequestParam(value = "page", defaultValue = "0") int start) {
+
+
+        Page<Product> products = productService.getProducts(start);
+
         modelMap.addAttribute("products", products);
+        modelMap.addAttribute("totalPages", products.getTotalPages());
+
 
         return "list";
     }

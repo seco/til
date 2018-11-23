@@ -18,12 +18,21 @@ public class ProductServiceImpl implements ProductService {
         this.productsRepasitory = productsRepasitory;
     }
 
+    private static int limit = 5;
+
     @Override
     @Transactional
-    public Page<Product> getProducts(int start, int limit) {
+    public Page<Product> getProducts(int start) {
         Pageable pageable = PageRequest.of(start, limit);
         Page<Product> products = productsRepasitory.findAll(pageable);
 
         return products;
+    }
+
+    //제품이름으로 검색
+    @Override
+    public Page<Product> findByProductNameContaining(String productName, Pageable pageable) {
+        Page<Product> productsByName = productsRepasitory.findByProductNameContaining(productName, pageable);
+        return productsByName;
     }
 }

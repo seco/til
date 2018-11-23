@@ -9,13 +9,20 @@
     <title>list</title>
 </head>
 <body>
-<h1>list</h1>
+<h1>Bread</h1>
 <br>
 
 <c:forEach items="${products.content}" var="product">
     ${product.productName}<br>
 </c:forEach>
 <br>
+
+totalPage : ${totalPages}
+<br>
+<%--Pagenation--%>
+<c:forEach begin="1" end="${totalPages}" step="1" var="page">
+    <a href="/shop/list?page=${page}">${page}</a>
+</c:forEach>
 
 </body>
 </html>
