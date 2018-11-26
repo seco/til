@@ -2,11 +2,13 @@ package selfproject.ffboard.dao;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 import selfproject.ffboard.dto.Article;
+import selfproject.ffboard.dto.ArticleContent;
 
 import javax.sql.DataSource;
 import java.util.*;
@@ -42,4 +44,21 @@ public class ArticleDao {
         SqlParameterSource params = new BeanPropertySqlParameterSource(article);
         return insertActionArticle.executeAndReturnKey(params).longValue();
     }
+
+    public void insertGroupId() {
+        String sql = "UPDATE article SET group_id=(SELECT LAST_INSERT_ID()) WHERE id = (SELECT LAST_INSERT_ID())";
+        originJdbc.execute(sql);
+    }
+
+    public int insertArticleContent(ArticleContent articleContent) {
+        SqlParameterSource params = new BeanPropertySqlParameterSource(articleContent);
+        return insertActionArticleContent.execute(params);
+    }
+
+    public int insertFileInfo(Map<String, Object> fileInfo) {
+        SqlParameterSource params = new MapSqlParameterSource(fileInfo);
+        return insertActionFile.execute(params);
+    }
+
+
 }
