@@ -1,6 +1,10 @@
 package selfproject.ffboard.dao;
 
+import com.sun.javafx.collections.MappingChange;
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -9,6 +13,7 @@ import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 import selfproject.ffboard.dto.Article;
 import selfproject.ffboard.dto.ArticleContent;
+import selfproject.ffboard.dto.ArticleFile;
 
 import javax.sql.DataSource;
 import java.util.*;
@@ -58,6 +63,38 @@ public class ArticleDao {
     public int insertFileInfo(Map<String, Object> fileInfo) {
         SqlParameterSource params = new MapSqlParameterSource(fileInfo);
         return insertActionFile.execute(params);
+    }
+
+    public ArticleFile getFileinfo(Long articleId) {
+        String sql = "SELECT article_id, stored_name, origin_name, content_type, size, path FROM file" +
+                "WHERE article_id = :articleId";
+
+        try{
+            RowMapper<ArticleFile> rowMapper = BeanPropertyRowMapper.newInstance(ArticleFile.class);
+            Map<String, Long> params = Collections.singletonMap("articleId", articleId);
+            return jdbc.queryForObject(sql, params, rowMapper);
+        }catch (DataAccessException e) {
+            return null;
+        }
+    }
+
+    public int increaseHitCount(Long id) {
+        String sql = "UPDATE article SET hit = hit + 1 WHERE id = :id";
+        Map<String, Long> map = Collections.singletonMap("id", id);
+        return jdbc.update(sql, map);
+    }
+
+    public int deleteArticle(Long id) {
+        String sql = "UPDATE article SET is_deleted=TRUE WHERE id = :id";
+        Map<String, Long> map = Collections.singletonMap("id", id);
+        return jdbc.update(sql, map);
+    }
+
+    public Long updateArticle(Article article) {
+        String sql = "UPDATE article SET title = :title, nick_name = :nickName, upddate = :upddate, ip_address = :ipAddress" +
+                "WHERE id = :id";
+        SqlParameterSource params = new BeanPropertySqlParameterSource(article);
+        return article.getId();
     }
 
 
