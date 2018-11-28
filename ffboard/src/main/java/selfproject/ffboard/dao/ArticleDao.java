@@ -97,5 +97,9 @@ public class ArticleDao {
         return article.getId();
     }
 
-
+    public int updateAticleCount(ArticleContent articleContent) {
+        String sql = "UPDATE article_counting SET count = count + 1 WHERE catetory_id = :catetoryId";
+        SqlParameterSource params = new BeanPropertySqlParameterSource(articleContent);
+        return  jdbc.update(sql, params);
+    }
 }

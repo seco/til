@@ -27,20 +27,21 @@
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="10" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="1" />
-          <entry key="java" value="8983" />
+          <entry key="java" value="9215" />
           <entry key="jsp" value="25" />
           <entry key="xml" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="8982" />
+          <entry key="JAVA" value="9214" />
           <entry key="JSP" value="25" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="SQL" value="1" />
@@ -157,8 +158,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/selfproject/ffboard/dao/ArticleDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="798">
-              <caret line="99" selection-start-line="99" selection-end-line="99" />
+            <state relative-caret-position="665">
+              <caret line="102" column="41" selection-start-line="102" selection-start-column="41" selection-end-line="102" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -241,7 +242,7 @@
   <component name="ProjectFrameBounds" extendedState="4">
     <option name="x" value="960" />
     <option name="y" value="28" />
-    <option name="width" value="950" />
+    <option name="width" value="940" />
     <option name="height" value="1018" />
   </component>
   <component name="ProjectView">
@@ -249,6 +250,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -362,7 +364,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -511,7 +512,8 @@
       <workItem from="1543055850820" duration="796000" />
       <workItem from="1543135517575" duration="3970000" />
       <workItem from="1543223406684" duration="2187000" />
-      <workItem from="1543303340968" duration="4642000" />
+      <workItem from="1543303340968" duration="5235000" />
+      <workItem from="1543413195441" duration="200000" />
     </task>
     <servers />
   </component>
@@ -521,13 +523,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38371000" />
+    <option name="totallyTimeSpent" value="39164000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="960" y="28" width="950" height="1018" extended-state="4" />
+    <frame x="960" y="28" width="940" height="1018" extended-state="4" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19757174" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20200893" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -758,8 +760,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/selfproject/ffboard/dao/ArticleDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="798">
-          <caret line="99" selection-start-line="99" selection-end-line="99" />
+        <state relative-caret-position="665">
+          <caret line="102" column="41" selection-start-line="102" selection-start-column="41" selection-end-line="102" selection-end-column="41" />
         </state>
       </provider>
     </entry>
