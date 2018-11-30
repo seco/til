@@ -102,4 +102,17 @@ public class ArticleDao {
         SqlParameterSource params = new BeanPropertySqlParameterSource(articleContent);
         return  jdbc.update(sql, params);
     }
+
+    public Article getArticle(Long id) {
+        String sql = "SELECT id, title, hit, nick_name, group_id, depth_level, group_seq, regdate" +
+                "upddate, category_id, ip_address, member_id, is_deleted " +
+                "FROM article WHERE id = :id";
+        try{
+            RowMapper<Article> rowMapper = new BeanPropertyRowMapper(Article.class);
+            Map<String, Long> params = Collections.singletonMap("id", id);
+            return jdbc.queryForObject(sql, params, rowMapper);
+        }catch (DataAccessException e) {
+            return null;
+        }
+    }
 }
