@@ -115,4 +115,12 @@ public class ArticleDao {
             return null;
         }
     }
+
+    public ArticleContent getArticleContent(Long id) {
+        String sql = "";
+        
+        return jdbc.queryForObject();
+    }catch (DataAccessException e) {
+        return null;
+    }
 }
