@@ -117,10 +117,14 @@ public class ArticleDao {
     }
 
     public ArticleContent getArticleContent(Long id) {
-        String sql = "";
-        
-        return jdbc.queryForObject();
-    }catch (DataAccessException e) {
-        return null;
+        String sql = "SELECT article_id, content FROM article_content WHERE article_id=:articleId";
+
+        try {
+            RowMapper<ArticleContent> rowMapper = BeanPropertyRowMapper.newInstance(ArticleContent.class);
+            Map<String, Long> params = Collections.singletonMap("articleId", id);
+            return jdbc.queryForObject(sql, params, rowMapper);
+        } catch (DataAccessException e) {
+            return null;
+        }
     }
 }
