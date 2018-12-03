@@ -16,6 +16,8 @@ import selfproject.ffboard.dto.ArticleContent;
 import selfproject.ffboard.dto.ArticleFile;
 
 import javax.sql.DataSource;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.*;
 
 @Repository
@@ -126,5 +128,17 @@ public class ArticleDao {
         } catch (DataAccessException e) {
             return null;
         }
+    }
+
+    public int getCount(int categoryId) {
+        String sql = "SELECT count FROM article_counting WHERE category_id = :categoryId";
+        Map<String, Integer> map = Collections.singletonMap("categoryId", categoryId);
+
+        return jdbc.queryForObject(sql, map, new RowMapper<Integer>() {
+            @Override
+            public Integer mapRow(ResultSet resultSet, int i) throws SQLException {
+                return resultSet.getInt(1);
+            }
+        });
     }
 }
